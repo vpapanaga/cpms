@@ -1,9 +1,7 @@
 package md.filadelfia.cpms.web.services;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import md.filadelfia.cpms.web.core.Person;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -11,10 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonServices {
 
     @RequestMapping(value="/add", method = RequestMethod.POST)
-    public String process(@RequestBody String payload) throws Exception {
+    public Person process(@RequestBody String payload) throws Exception {
         System.out.println(payload);
 
-        return "Person was Added!\nJSON:" + payload;
+        Person person = new Person();
+        person.setFirstName("First Name");
+        person.setLastName("Last Name");
+        return person;
     }
 
 
