@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Spring Boot Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1> {{ name }}'s First Spring Boot Application </h1>
+
+<form enctype="application/json" action="/api/person/add" method="post">
+   First Name:  <input name='first_name'>
+   Last Name: <input name='last_name'>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
