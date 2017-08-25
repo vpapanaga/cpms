@@ -3,14 +3,33 @@
 <head>
     <title>Spring Boot Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script>
+        function submitInformation() {
+            var xhr = new XMLHttpRequest();
+            var url = "/api/person/add";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            var firstName = document.getElementById("first_name");
+            var lastName = document.getElementById("last_name");
+            var data = JSON.stringify({"firstName": firstName.value, "lastName": lastName.value});
+            xhr.send(data);
+            window.location.href="/api/person/list";
+        }
+    </script>
 </head>
 <body>
 <h1> {{ name }}'s First Spring Boot Application </h1>
 
-<form enctype="application/x-www-form-urlencoded" action="/api/person/add" method="post">
-   First Name:  <input name='first_name'>
-   Last Name: <input name='last_name'>
-    <input type="submit" value="Submit">
+<form method="post" id="MyForm">
+   <fieldset>
+       <legend>Personal information:</legend>
+       First Name:
+       <input name="first_name" id="first_name"> <br/><br/>
+       Last Name:
+       <input name="last_name" id="last_name"> <br/><br/>
+       <input type="button" value="Submit" onclick="submitInformation()">
+   </fieldset>
+
 </form>
 
 </body>
