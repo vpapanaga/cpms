@@ -21,14 +21,7 @@ public class IndexController {
     public ModelAndView index() {
         Map<String, String> model = new HashMap<>();
         model.put("name", "Victor Papanaga");
-
-        Person person = new Person();
-        person.setFirstName("Test");
-        person.setLastName("User");
-
-     //   personsRepository.save(person);
-
-        return new ModelAndView("index", model);
+       return new ModelAndView("index", model);
     }
 
 
